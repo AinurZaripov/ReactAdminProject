@@ -10,19 +10,6 @@ class App extends React.Component {
         array: undefined,
         error: undefined
     }
-/*
-    state = {
-        name: undefined,
-        description: undefined,
-        price: undefined,
-        error: undefined
-    }
-   
-    stateList = {
-        list: undefined
-    }
-    
- */
     gettingProducts = async (e) => 
     {
         e.preventDefault();
@@ -36,23 +23,7 @@ class App extends React.Component {
                 array: data,
                 error: ""
             });
-
-   /*     this.setState(
-            {
-                name: data.name,
-                description: data.description,
-                price: data.price,
-                error: ""
-            }
-        );
-
-        this.setState({
-            list: data
-        }); */
     }
-
-    
-
     render() {
         return (
             <div>
@@ -68,7 +39,7 @@ class App extends React.Component {
         );
     }
 }
-<TopToolbar></TopToolbar>
+
 class First extends React.Component {
     constructor(props) {
       super(props);
@@ -85,14 +56,4 @@ class First extends React.Component {
       );
     }
   }
-  
-
-
-{/* <Products 
-                    name = {this.state.name}
-                    description = {this.state.description}
-                    price = {this.state.price }
-                /> */}
-
-                 /* <ProductsList list = {this.state.array}/> */
 export default App;
