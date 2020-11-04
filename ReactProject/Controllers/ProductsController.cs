@@ -23,14 +23,50 @@ namespace ReactProject.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            return Json(Products.Get().ToList());
+            var products = Products.Get().ToList();
+             return Json(products);
+        }
+
+        [HttpGet("{id}")]
+        public JsonResult Get(int id)
+        {
+            var products = Products.FindById(id);
+            if (products == null)
+                return Json("Not found");
+            return Json(products);
         }
 
         // POST api/<controller>
         [HttpPost]
-        public IActionResult Post(Models.Products Products)
+        public IActionResult Post(Products item)
         {
-            return Ok();
+            try
+            {
+                Products.Create(item);
+                return Json("Ok");
+            }
+            catch (Exception ex)
+            {
+                return Json("Error: " + ex);
+                throw;
+            }
+        }
+        [Microsoft.AspNetCore.Cors.EnableCors("CorsPolicy")]
+        //[Route("{price:int}")]
+        [HttpPut]
+        public IActionResult Put(Models.Products item)
+        {
+            try
+            {
+                Products.Update(item);
+                return Json("Ok");
+            }
+            catch (Exception ex)
+            {
+                return Json("Error: " + ex);
+                throw;
+            }
+            
         }
 
         // DELETE api/<controller>/5

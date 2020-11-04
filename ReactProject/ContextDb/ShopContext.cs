@@ -16,7 +16,9 @@ namespace ReactProject
         {
         }
 
-        public virtual DbSet<Products> Products { get; set; }
+        public DbSet<Products> Products { get; set; }
+        public DbSet<Address> Address{ get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
